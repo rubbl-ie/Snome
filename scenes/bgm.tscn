@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://oh0wvbnfwapw"]
+
+[ext_resource type="AudioStream" uid="uid://dhh611hu4l7ee" path="res://Assests/Flame platform art/Sprites/game go.mp3" id="1_q5y64"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" unique_id=1530440890]
+stream = ExtResource("1_q5y64")
+autoplay = true

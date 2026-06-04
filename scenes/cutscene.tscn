@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cpddqo6tai1n3"]
+
+[ext_resource type="VideoStream" uid="uid://bc7ed8qsaj1ir" path="res://Assests/Flame platform art/Sprites/cutscene.ogv" id="2_0sipp"]
+
+[node name="Cutscene" type="Node2D" unique_id=1403580687]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1662617458]
+offset_top = 2.0
+offset_right = 1151.0
+offset_bottom = 655.0
+stream = ExtResource("2_0sipp")
+autoplay = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1307970702]
+position = Vector2(579, 326)

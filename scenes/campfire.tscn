@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://bvotxort3geh3"]
+
+[ext_resource type="Script" uid="uid://cmviflsgqv2v4" path="res://Scripts/area_2d.gd" id="1_8pk5p"]
+[ext_resource type="Texture2D" uid="uid://416biwekms1g" path="res://Assests/Flame platform art/Sprites/unlit campfire.png" id="1_yfrnb"]
+[ext_resource type="Texture2D" uid="uid://d2td5ikg66bfa" path="res://Assests/Flame platform art/Sprites/Campfire lit.png" id="2_8pk5p"]
+
+[sub_resource type="GDScript" id="GDScript_yfrnb"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+	
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6xh0"]
+atlas = ExtResource("2_8pk5p")
+region = Rect2(0, 0, 60, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1v5ef"]
+atlas = ExtResource("2_8pk5p")
+region = Rect2(60, 0, 60, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63vhv"]
+atlas = ExtResource("2_8pk5p")
+region = Rect2(120, 0, 60, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2pjx"]
+atlas = ExtResource("2_8pk5p")
+region = Rect2(180, 0, 60, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_te7ig"]
+atlas = ExtResource("2_8pk5p")
+region = Rect2(240, 0, 60, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0f1eb"]
+atlas = ExtResource("2_8pk5p")
+region = Rect2(300, 0, 60, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbayf"]
+atlas = ExtResource("2_8pk5p")
+region = Rect2(360, 0, 60, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73d8c"]
+atlas = ExtResource("2_8pk5p")
+region = Rect2(420, 0, 60, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdo0i"]
+atlas = ExtResource("2_8pk5p")
+region = Rect2(0, 48, 60, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03221"]
+atlas = ExtResource("2_8pk5p")
+region = Rect2(60, 48, 60, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ravfa"]
+atlas = ExtResource("2_8pk5p")
+region = Rect2(120, 48, 60, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7v34"]
+atlas = ExtResource("2_8pk5p")
+region = Rect2(180, 48, 60, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sdndd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6xh0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1v5ef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63vhv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2pjx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_te7ig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0f1eb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sbayf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73d8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdo0i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03221")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ravfa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7v34")
+}],
+"loop": true,
+"name": &"lit",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b5him"]
+size = Vector2(38.881737, 5.5238447)
+
+[node name="Campfire" type="Node2D" unique_id=201485215]
+script = SubResource("GDScript_yfrnb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=443647939]
+visible = false
+position = Vector2(-0.11174393, -6.24516)
+scale = Vector2(0.46294186, 0.4064516)
+sprite_frames = SubResource("SpriteFrames_sdndd")
+animation = &"lit"
+frame = 6
+frame_progress = 0.568203
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=820911859]
+position = Vector2(-0.11174393, -6.24516)
+scale = Vector2(0.46294186, 0.4064516)
+texture = ExtResource("1_yfrnb")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=75793859]
+position = Vector2(-0.11174393, -6.24516)
+scale = Vector2(0.46294186, 0.4064516)
+script = ExtResource("1_8pk5p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1283428730]
+position = Vector2(-6.1035156e-05, 7.6825194)
+scale = Vector2(1.0000001, 0.9999998)
+shape = SubResource("RectangleShape2D_b5him")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

@@ -1,0 +1,214 @@
+[gd_scene format=3 uid="uid://blw45kj4fwc70"]
+
+[ext_resource type="Texture2D" uid="uid://0xmo4hwbas1w" path="res://Assests/Flame platform art/Sprites/Untitled 6-f3de.png" id="1_24ius"]
+[ext_resource type="Texture2D" uid="uid://d2td5ikg66bfa" path="res://Assests/Flame platform art/Sprites/Campfire lit.png" id="2_gq6tj"]
+[ext_resource type="Texture2D" uid="uid://dbbhidal1ntd3" path="res://Assests/Flame platform art/Sprites/Snowtiles.png" id="3_gq6tj"]
+
+[sub_resource type="GDScript" id="GDScript_dq7x3"]
+script/source = "extends Control
+
+@onready var animation = $AnimatedSprite2D
+
+func _ready():
+	animation.play()
+
+func _on_restart_pressed() -> void:
+	print(\"h\")
+	get_tree().change_scene_to_file(\"res://scenes/menu.tscn\")
+
+
+func _on_quit_pressed() -> void:
+	get_tree().quit()
+"
+
+[sub_resource type="Curve" id="Curve_npi8v"]
+_limits = [0.0, 1.0, 0.008658007, 1.0]
+_data = [Vector2(0.008658007, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.5246692, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_jyhfs"]
+curve = SubResource("Curve_npi8v")
+
+[sub_resource type="Gradient" id="Gradient_tgfro"]
+offsets = PackedFloat32Array(0, 0.009756098, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.33658537, 0.33658537, 0.33658537, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tefeu"]
+gradient = SubResource("Gradient_tgfro")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ob58s"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(300, 200, 1)
+spread = 100.715
+gravity = Vector3(20, 50, 0)
+scale_min = 0.0
+scale_max = 5.0
+color_initial_ramp = SubResource("GradientTexture1D_tefeu")
+alpha_curve = SubResource("CurveTexture_jyhfs")
+turbulence_enabled = true
+turbulence_influence_max = 0.6
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6xh0"]
+atlas = ExtResource("2_gq6tj")
+region = Rect2(0, 0, 60, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1v5ef"]
+atlas = ExtResource("2_gq6tj")
+region = Rect2(60, 0, 60, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63vhv"]
+atlas = ExtResource("2_gq6tj")
+region = Rect2(120, 0, 60, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2pjx"]
+atlas = ExtResource("2_gq6tj")
+region = Rect2(180, 0, 60, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_te7ig"]
+atlas = ExtResource("2_gq6tj")
+region = Rect2(240, 0, 60, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0f1eb"]
+atlas = ExtResource("2_gq6tj")
+region = Rect2(300, 0, 60, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbayf"]
+atlas = ExtResource("2_gq6tj")
+region = Rect2(360, 0, 60, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73d8c"]
+atlas = ExtResource("2_gq6tj")
+region = Rect2(420, 0, 60, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdo0i"]
+atlas = ExtResource("2_gq6tj")
+region = Rect2(0, 48, 60, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03221"]
+atlas = ExtResource("2_gq6tj")
+region = Rect2(60, 48, 60, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ravfa"]
+atlas = ExtResource("2_gq6tj")
+region = Rect2(120, 48, 60, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7v34"]
+atlas = ExtResource("2_gq6tj")
+region = Rect2(180, 48, 60, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_raq4n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6xh0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1v5ef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63vhv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2pjx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_te7ig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0f1eb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sbayf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73d8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdo0i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03221")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ravfa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7v34")
+}],
+"loop": true,
+"name": &"lit",
+"speed": 5.0
+}]
+
+[node name="Win" type="Control" unique_id=1150139774]
+layout_mode = 3
+anchors_preset = 0
+script = SubResource("GDScript_dq7x3")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1535977664]
+show_behind_parent = true
+position = Vector2(-4437.9995, 911.99994)
+scale = Vector2(4.7109375, 1.0987365)
+color = Color(0.06395897, 0.17840606, 0.28404957, 1)
+polygon = PackedVector2Array(993.64496, -399.54974, 1018.7113, -393.91016, 1135.2303, -367.69498, 1125.4658, -725.37854, 995.9799, -749.04205)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1639662389]
+position = Vector2(561, 287)
+zoom = Vector2(2, 2)
+
+[node name="Label" type="Label" parent="." unique_id=942174085]
+layout_mode = 0
+offset_left = 477.0
+offset_top = 180.0
+offset_right = 649.0
+offset_bottom = 203.0
+text = "Thank you for playing!"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1431419345]
+top_level = true
+light_mask = 4
+visibility_layer = 4
+z_index = 2
+position = Vector2(577, 294)
+amount = 300
+lifetime = 2.17
+preprocess = 30.0
+process_material = SubResource("ParticleProcessMaterial_ob58s")
+
+[node name="Back to menu" type="Button" parent="." unique_id=142467528]
+layout_mode = 0
+offset_left = 499.0
+offset_top = 277.0
+offset_right = 614.0
+offset_bottom = 308.0
+text = "Back to menu"
+
+[node name="Quit" type="Button" parent="." unique_id=1290329595]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 235.0
+offset_right = 595.0
+offset_bottom = 266.0
+text = "Quit"
+
+[node name="Untitled6F3De" type="Sprite2D" parent="." unique_id=611084010]
+position = Vector2(559, 353)
+texture = ExtResource("1_24ius")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1378029540]
+position = Vector2(562, 369.00003)
+scale = Vector2(0.46294186, 0.4064516)
+sprite_frames = SubResource("SpriteFrames_raq4n")
+animation = &"lit"
+
+[node name="Snowtiles" type="Sprite2D" parent="." unique_id=1472722100]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(563, 425)
+scale = Vector2(5.7265625, 1)
+texture = ExtResource("3_gq6tj")
+
+[connection signal="pressed" from="Back to menu" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

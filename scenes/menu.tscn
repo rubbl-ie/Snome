@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://djx4u8uj0u8bj"]
+
+[ext_resource type="Texture2D" uid="uid://dhfkpn6nes4yq" path="res://Assests/Flame platform art/CGs/Untitled473_20260604165609.jpg" id="1_yqeox"]
+
+[sub_resource type="GDScript" id="GDScript_yqeox"]
+script/source = "extends Control
+
+
+# Called when the node enters the scene tree for the first time.
+
+
+func _on_start_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://scenes/main.tscn\")
+"
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_vjb58"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_con2f"]
+font_size = 73
+font_color = Color(1, 0.7137255, 0.19215687, 1)
+shadow_size = 25
+shadow_color = Color(0.09064125, 0.21988806, 0.3668009, 1)
+
+[sub_resource type="Curve" id="Curve_yqeox"]
+_limits = [0.0, 1.0, 0.008658007, 1.0]
+_data = [Vector2(0.008658007, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.5246692, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_vjb58"]
+curve = SubResource("Curve_yqeox")
+
+[sub_resource type="Gradient" id="Gradient_con2f"]
+offsets = PackedFloat32Array(0, 0.009756098, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.33658537, 0.33658537, 0.33658537, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mhnvy"]
+gradient = SubResource("Gradient_con2f")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4ytvr"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(580, 450, 1)
+spread = 100.715
+gravity = Vector3(20, 50, 0)
+scale_min = 0.0
+scale_max = 5.0
+color_initial_ramp = SubResource("GradientTexture1D_mhnvy")
+alpha_curve = SubResource("CurveTexture_vjb58")
+turbulence_enabled = true
+turbulence_influence_max = 0.6
+
+[node name="Menu" type="Control" unique_id=36530214]
+layout_mode = 3
+anchors_preset = 0
+script = SubResource("GDScript_yqeox")
+
+[node name="Untitled47320260604165609" type="Sprite2D" parent="." unique_id=354638964]
+position = Vector2(575, 323)
+texture = ExtResource("1_yqeox")
+
+[node name="Start" type="Button" parent="." unique_id=1011977603]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 260.0
+offset_right = 88.0
+offset_bottom = 293.0
+text = "Start"
+icon = SubResource("CanvasTexture_vjb58")
+expand_icon = true
+
+[node name="Label" type="Label" parent="." unique_id=1580324899]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 158.0
+offset_right = 237.0
+offset_bottom = 254.0
+text = "Snome"
+label_settings = SubResource("LabelSettings_con2f")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1502807506]
+top_level = true
+light_mask = 4
+visibility_layer = 4
+z_index = 2
+position = Vector2(577, 344)
+amount = 300
+lifetime = 2.17
+preprocess = 30.0
+process_material = SubResource("ParticleProcessMaterial_4ytvr")
+
+[node name="Label2" type="Label" parent="." unique_id=1156522088]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 150.0
+offset_right = 110.0
+offset_bottom = 173.0
+text = "By-Rubbl.ie"
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
